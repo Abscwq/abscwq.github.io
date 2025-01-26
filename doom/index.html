@@ -36,8 +36,13 @@
         width: 10em;
         margin: 0 auto;
     }
-    a:link {color:white}
-    .dosbox-start {color: white;}
+    a {
+      cursor: pointer;
+    }
+
+    #fullscreen_DOOM {color: white;}
+
+  .dosbox-start {color: white;}
 
     body {
       background-color: #0d1117;
@@ -105,7 +110,7 @@
   });
   
   function openControls() {
-    window.open("https://www.example.com", "_blank", "width=800,height=600");
+    window.open("controls.html", "_blank", "width=400,height=300");
   }
   
 </script>
