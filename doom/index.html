@@ -86,7 +86,7 @@
 <center>
 <h1>JS-DOS DOOM</h1>
 <a href="https://github.com/thedoggybrad/doom_on_js-dos">Source code</a><br>
-<h3><a href="controls">Controls</a></h3>
+<button onclick="openControls()">Controls</button>
 <div style="margin-top:20px;" id="DOOM" class="dosbox-default"></div><br>
 <a id="fullscreen_DOOM" href="javascript: void 0;" class="fa-solid fa-expand">FULLSCREEN</a>
 
@@ -104,6 +104,11 @@
   document.getElementById("fullscreen_DOOM").addEventListener("click", function() {
     dosbox_DOOM.requestFullScreen();
   });
+  
+  function openControls() {
+    window.open("https://www.example.com", "_blank", "width=800,height=600");
+  }
+  
 </script>
     </center>
   </body>
