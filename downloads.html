@@ -16,6 +16,7 @@
     h1 {
       color: white;
       margin: 20px 0;
+      text-align: center;
     }
 
     a {
@@ -29,22 +30,52 @@
     }
 
     .container {
-      text-align: center;
       padding: 20px;
     }
 
     .github-buttons {
       margin-top: 20px;
+      text-align: center;
     }
 
-    /* some resizing shit */
+    .items-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      justify-content: center;
+      max-width: 935px;
+      margin: 0 auto;
+    }
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border: 1px solid #444;
+      background-color: #2b2b2b;
+    }
+
+    .item img {
+      width: auto;
+      height: 170px;
+      max-width: 300px;
+    }
+
+    /* Responsive adjustments */
     @media (max-width: 600px) {
+      .items-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
       a {
         font-size: 1em;
       }
+    }
 
-      .container {
-        padding: 10px;
+    @media (max-width: 400px) {
+      .items-container {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -52,13 +83,27 @@
 <body>
   <div class="container">
     <h1>Downloads</h1>
-    <div>
-        <a href="https://github.com/Abscwq/abscwq.github.io/raw/refs/heads/main/dl/files/VC_redist.x64.exe" style="color: #4493f8;">VC Redist x64</a><br>
-        <a href="https://github.com/Abscwq/abscwq.github.io/raw/refs/heads/main/dl/files/VC_redist.x86.exe" style="color: #4493f8;">VC Redist x86</a><br><br>
+    <div class="items-container">
+      <div class="item">
+        <img src="https://cdn.cloudflare.steamstatic.com/store/home/store_home_share.jpg" alt="Steam">
+        <name><b>Steam</b></name>
+        <a href="https://cdn.fastly.steamstatic.com/client/installer/SteamSetup.exe">Download</a>
+      </div>
+      <div class="item">
+        <img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/665643dd8c7ac752237b5cef_Discord-OG-1200x630.jpg" alt="Discord">
+        <name><b>Discord</b></name>
+        <a href="https://discord.com/api/downloads/distributions/app/installers/latest?channel=stable&platform=win&arch=x64">Download</a>
+      </div>
+      <div class="item">
+        <img src="https://avatars.githubusercontent.com/u/16999957?s=280&v=4" alt="Process Hacker">
+        <name><b>Process Hacker</b></name>
+        <a href="https://github.com/Abscwq/abscwq.github.io/raw/refs/heads/main/dl/files/processhacker-2.39-setup.exe">Download</a>
+      </div>
     </div>
-    <div class="github-buttons">
-      <a class="github-button" href="https://github.com/abscwq/abscwq.github.io" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star abscwq/abscwq.github.io on GitHub">Star</a>
-      <a class="github-button" href="https://github.com/abscwq" data-color-scheme="no-preference: light; light: light; dark: light;" data-size="large" aria-label="Follow @abscwq on GitHub">Follow @abscwq</a>
-    </div>
+  </div>
+
+  <div class="github-buttons">
+    <a class="github-button" href="https://github.com/abscwq/abscwq.github.io" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star abscwq/abscwq.github.io on GitHub">Star</a>
+    <a class="github-button" href="https://github.com/abscwq" data-color-scheme="no-preference: light; light: light; dark: light;" data-size="large" aria-label="Follow @abscwq on GitHub">Follow @abscwq</a>
   </div>
 </body>
