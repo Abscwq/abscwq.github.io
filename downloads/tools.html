@@ -1,0 +1,116 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Downloads</title>
+  <link rel="icon" type="image/x-icon" href="https://abscwq.github.io/img/icon.png">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <style>
+    body {
+      background-color: #0d1117;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      color: white;
+      margin: 10px 0;
+      text-align: center;
+    }
+
+    a {
+      color: #4493f8;
+      text-decoration: none;
+      font-size: 1.2em;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .tabs {
+      text-align: center;
+      padding: 10px;
+    }
+
+    .tabs a {
+      margin: 5px;
+    }
+
+    .tabs a:hover {
+      text-decoration: none;
+    }
+
+    .selected:hover {
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .github-buttons {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .items-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      justify-content: center;
+      max-width: 935px;
+      margin: 0 auto;
+    }
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border: 1px solid #444;
+      background-color: #2b2b2b;
+    }
+
+    .item img {
+      width: auto;
+      height: 170px;
+      max-width: 300px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .items-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      a {
+        font-size: 1em;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .items-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Downloads</h1>
+    <div class="tabs">
+      <a href="/programs">Programs</a><a href="/os">OS</a><a class="selected" onclick="window.location.reload();"><b>Tools</b></a>
+    </div>
+    <h2 style="text-align: center;">Work in progress</h2>
+    <img src="https://media.tenor.com/N1Hgl4qMR30AAAAM/mxstery.gif" style="display: block; margin: auto;">
+    </div>
+  </div>
+
+  <div class="github-buttons">
+    <a class="github-button" href="https://github.com/abscwq/abscwq.github.io" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star abscwq/abscwq.github.io on GitHub">Star</a>
+    <a class="github-button" href="https://github.com/abscwq" data-color-scheme="no-preference: light; light: light; dark: light;" data-size="large" aria-label="Follow @abscwq on GitHub">Follow @abscwq</a>
+  </div>
+</body>
