@@ -1,0 +1,61 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloads</title>
+    <link rel="icon" type="image/x-icon" href="https://abscwq.github.io/img/icon.png">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Downloads</h1>
+        <div class="tabs">
+            <a href="#programs" class="selected">Programs</a>
+            <a href="#os">OS</a>
+            <a href="#tools">Tools</a>
+        </div>
+        
+        <div id="content" class="items-container">
+            <!-- Default content for Programs (will be replaced with programs.html content) -->
+            Loading Programs...
+        </div>
+    </div>
+
+    <div class="github-buttons">
+        <a class="github-button" href="https://github.com/abscwq/abscwq.github.io" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star abscwq/abscwq.github.io on GitHub">Star</a>
+        <a class="github-button" href="https://github.com/abscwq" data-color-scheme="no-preference: light; light: light; dark: light;" data-size="large" aria-label="Follow @abscwq on GitHub">Follow @abscwq</a>
+    </div>
+
+    <script>
+        function loadPage() {
+            const hash = window.location.hash.substring(1) || "programs"; // Default to 'programs' if no hash
+
+            // Update the active tab
+            const tabs = document.querySelectorAll('.tabs a');
+            tabs.forEach(tab => {
+                tab.classList.remove('selected');
+                if (tab.getAttribute('href').substring(1) === hash) {
+                    tab.classList.add('selected');
+                }
+            });
+
+            // Fetch the respective HTML file based on the tab
+            const content = document.getElementById('content');
+            fetch(hash + '.html')
+                .then(response => response.text())
+                .then(data => {
+                    content.innerHTML = data; // Update content with fetched HTML
+                })
+                .catch(() => {
+                    content.innerHTML = "<p>Page not found.</p>"; // Show error if the file is not found
+                });
+        }
+
+        // Load the page when the hash changes
+        window.addEventListener('hashchange', loadPage);
+
+        // Load the page initially
+        window.addEventListener('load', loadPage);
+    </script>
+</body>
