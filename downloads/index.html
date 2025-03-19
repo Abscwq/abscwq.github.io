@@ -17,8 +17,7 @@
         </div>
         
         <div id="content" class="items-container">
-            <!-- Default content for Programs (will be replaced with programs.html content) -->
-            Loading Programs...
+            Loading...
         </div>
     </div>
 
@@ -29,9 +28,8 @@
 
     <script>
         function loadPage() {
-            const hash = window.location.hash.substring(1) || "programs"; // Default to 'programs' if no hash
+            const hash = window.location.hash.substring(1) || "programs"; // Default
 
-            // Update the active tab
             const tabs = document.querySelectorAll('.tabs a');
             tabs.forEach(tab => {
                 tab.classList.remove('selected');
@@ -40,22 +38,19 @@
                 }
             });
 
-            // Fetch the respective HTML file based on the tab
+
             const content = document.getElementById('content');
             fetch(hash + '.html')
                 .then(response => response.text())
                 .then(data => {
-                    content.innerHTML = data; // Update content with fetched HTML
+                    content.innerHTML = data;
                 })
                 .catch(() => {
-                    content.innerHTML = "<p>Page not found.</p>"; // Show error if the file is not found
+                    content.innerHTML = "<p>Page not found.</p>";
                 });
         }
 
-        // Load the page when the hash changes
         window.addEventListener('hashchange', loadPage);
-
-        // Load the page initially
         window.addEventListener('load', loadPage);
     </script>
 </body>
