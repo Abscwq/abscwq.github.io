@@ -35,6 +35,10 @@ body {
     text-decoration: none;
   }
 
+  .selected {
+    font-weight: bold;
+  }
+
   .selected:hover {
     text-decoration: none;
     cursor: pointer;
