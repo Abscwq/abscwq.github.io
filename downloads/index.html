@@ -1,23 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Downloads</title>
     <link rel="icon" type="image/x-icon" href="https://abscwq.github.io/img/icon.png">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
+    <a href="../" class="back"><</a>
     <div class="container">
         <h1>Downloads</h1>
         <div class="tabs">
-            <a href="#programs" class="selected">Programs</a>
-            <a href="#os">OS</a>
-            <a href="#tools">Tools</a>
+            <a href="#programs" class="selected" onclick="showTab('programs')">Programs</a>
+            <a href="#os" onclick="showTab('os')">OS</a>
+            <a href="#tools" onclick="showTab('tools')">Tools</a>
         </div>
         
-        <div id="content" class="items-container">
-            Loading...
+        <!-- programs -->
+        <div id="programs" class="items-container">
+            <div class="item">
+                <img src="https://cdn.cloudflare.steamstatic.com/store/home/store_home_share.jpg" alt="Steam">
+                <name><b>Steam</b></name>
+                <a href="https://cdn.fastly.steamstatic.com/client/installer/SteamSetup.exe">Download</a>
+            </div>
+            <div class="item">
+                <img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/665643dd8c7ac752237b5cef_Discord-OG-1200x630.jpg" alt="Discord">
+                <name><b>Discord</b></name>
+                <a href="https://discord.com/api/downloads/distributions/app/installers/latest?channel=stable&platform=win&arch=x64">Download</a>
+            </div>
+            <div class="item">
+                <img src="https://avatars.githubusercontent.com/u/16999957?s=280&v=4" alt="Process Hacker">
+                <name><b>Process Hacker</b></name>
+                <a href="https://github.com/Abscwq/abscwq.github.io/raw/refs/heads/main/dl/files/processhacker-2.39-setup.exe">Download</a>
+            </div>
+            <div class="item">
+                <img src="https://avatars.githubusercontent.com/u/16999957?s=280&v=4" alt="Process Hacker">
+                <name><b>Empty</b></name>
+                <a href="https://github.com/Abscwq/abscwq.github.io/raw/refs/heads/main/dl/files/processhacker-2.39-setup.exe">Download</a>
+            </div>
+            <div class="item">
+                <img src="https://avatars.githubusercontent.com/u/16999957?s=280&v=4" alt="Process Hacker">
+                <name><b>Empty</b></name>
+                <a href="https://github.com/Abscwq/abscwq.github.io/raw/refs/heads/main/dl/files/processhacker-2.39-setup.exe">Download</a>
+            </div>
+            <div class="item">
+                <img src="https://avatars.githubusercontent.com/u/16999957?s=280&v=4" alt="Process Hacker">
+                <name><b>Empty</b></name>
+                <a href="https://github.com/Abscwq/abscwq.github.io/raw/refs/heads/main/dl/files/processhacker-2.39-setup.exe">Download</a>
+            </div>
+        </div>
+        
+        <!-- os -->
+        <div id="os" class="items-container" style="display:none;">
+            <div class="item">
+                <img src="https://i.imgur.com/siWH9Zo.png" alt="Windows 10">
+                <name><b>Windows 10</b></name>
+                <a href="">Coming soon!</a>
+            </div>
+            <div class="item">
+                <img src="https://i.imgur.com/s6LdHqb.png" alt="Windows 8.1">
+                <name><b>Windows 8.1</b></name>
+                <a href="">Coming soon!</a>
+            </div>
+            <div class="item">
+                <img src="https://i.imgur.com/yBfIiyr.png" alt="Windows 8">
+                <name><b>Windows 8</b></name>
+                <a href="">Coming soon!</a>
+            </div>
+        </div>
+        
+        <!-- tools -->
+        <div id="tools" class="items-container" style="display:none;">
+            <div class="item">
+                <img src="https://avatars.githubusercontent.com/u/16999957?s=280&v=4" alt="Process Hacker">
+                <name><b>Process Hacker</b></name>
+                <a href="https://github.com/Abscwq/abscwq.github.io/raw/refs/heads/main/dl/files/processhacker-2.39-setup.exe">Download</a>
+            </div>
         </div>
     </div>
 
@@ -27,30 +87,22 @@
     </div>
 
     <script>
-        function loadPage() {
-            const hash = window.location.hash.substring(1) || "programs"; // Default
-
-            const tabs = document.querySelectorAll('.tabs a');
-            tabs.forEach(tab => {
-                tab.classList.remove('selected');
-                if (tab.getAttribute('href').substring(1) === hash) {
-                    tab.classList.add('selected');
-                }
+        function showTab(tabId) {
+            document.querySelectorAll('.items-container').forEach(tab => {
+                tab.style.display = 'none';
             });
-
-
-            const content = document.getElementById('content');
-            fetch(hash + '.html')
-                .then(response => response.text())
-                .then(data => {
-                    content.innerHTML = data;
-                })
-                .catch(() => {
-                    content.innerHTML = "<p>Page not found.</p>";
-                });
+            document.getElementById(tabId).style.display = 'grid';
+            
+            document.querySelectorAll('.tabs a').forEach(link => {
+                link.classList.remove('selected');
+            });
+            document.querySelector(`[href="#${tabId}"]`).classList.add('selected');
         }
-
-        window.addEventListener('hashchange', loadPage);
-        window.addEventListener('load', loadPage);
+        
+        window.addEventListener('load', () => {
+            const hash = window.location.hash.substring(1) || "programs";
+            showTab(hash);
+        });
     </script>
 </body>
+</html>
