@@ -1,6 +1,41 @@
 <body>
+  <img id="s" src="./src/speakerm.avif" alt="Speaker toggle">
+
   <center>
-    <h1>this site may get updated after you refresh the page.</h1>
+    <h1>this site may get updated any time now.</h1>
     <a href="https://abscwq.github.io">refresh</a>
   </center>
+
+  <audio id="a" src="./src/flashing_lights.mp3"></audio>
+
+  <style>
+  #s {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+  }
+  </style>
+
+
+  <script>
+    const s = document.getElementById('s');
+    const a = document.getElementById('a');
+
+    s.onclick = () => {
+      if (a.paused) {
+        a.play();
+        s.src = './src/speaker.avif';
+      } else {
+        a.pause();
+        s.src = './src/speakerm.avif';
+      }
+    };
+
+    a.onended = () => {
+      s.src = './src/speaker.avif';
+    };
+  </script>
 </body>
